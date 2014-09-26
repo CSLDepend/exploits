@@ -1,0 +1,33 @@
+#!/bin/bash
+# well, kinda lame ./configure to compute deps
+rm -f _kernel.S
+OUT=.depend
+OUTBIN=sk
+echo -n Computing dependencies...
+ALLSRC="`echo [^_]*.c` `echo *.S`"
+ALLHDR="`echo ../include/*.h`"
+ALLOBJ=`echo $ALLSRC | sed -e 's/\.c/\.o/g' -e 's/\.S/\.o/g'`
+echo -n .
+cat << _eof_ > $OUT
+SKOBJ=$ALLOBJ
+_eof_
+echo -n .
+for i in [^_]*.c [^_]*.S; do
+	echo `echo $i | sed -e 's/\.c/\.o/g'`: `grep '#include ".*"' $i | sed -e 's/\#include \"/..\/include\//g' -e 's/\"//g'` >> $OUT
+done
+echo -n .
+echo _kernel.S: `grep '#include ".*\.h"' _kernel.c | sed -e 's/\#include \"/..\/include\//g' -e 's/\"//g'` >> $OUT
+echo -n .
+for i in ../include/*.h ; do
+	echo $i: `grep '#include ".*\.h"' $i | sed -e 's/\#include \"/..\/include\//g' -e 's/\"//g'` >> $OUT
+done
+echo -n .
+OLP=$PWD
+cd ..
+cat << _eof_ > $OUT
+src/$OUTBIN:`echo src/*.c src/*.S include/*.h`
+	(cd src; make $OUTBIN)
+_eof_
+echo -n .
+echo OK
+cd $OLP

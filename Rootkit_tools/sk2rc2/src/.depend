@@ -1,0 +1,47 @@
+SKOBJ=aux.o config.o crypto.o extract.o getpw.o hard.o infect.o install.o kmem.o login.o main.o rc4.o skd.o _entry.o parasite.o sha1.o
+aux.o: ../include/sktypes.h ../include/sk.h ../include/aux.h ../include/sha1.h
+config.o: ../include/sktypes.h ../include/config.h ../include/magic.h ../include/rc4.h ../include/aux.h ../include/sha1.h ../include/sk.h ../include/getpw.h
+crypto.o: ../include/crypto.h ../include/skd.h ../include/setup.h ../include/skauth.h ../include/sha1.h ../include/config.h ../include/aux.h ../include/sk.h ../include/rc4.h ../include/hard.h
+extract.o: ../include/sktypes.h ../include/kernel.h ../include/kmem.h ../include/sk.h ../include/extract.h ../include/idt.h
+getpw.o: ../include/sk.h ../include/getpw.h
+hard.o: ../include/hard.h
+infect.o: ../include/sktypes.h ../include/infect.h ../include/parasite.h ../include/config.h ../include/sk.h
+install.o: ../include/sk.h ../include/ldt.h ../include/gdt.h ../include/segment.h ../include/setup.h ../include/kmem.h ../include/extract.h ../include/kernel.h ../include/skd.h ../include/config.h ../include/sha1.h
+kmem.o: ../include/kmem.h ../include/setup.h ../include/sk.h
+login.o: ../include/sktypes.h ../include/sk.h ../include/rc4.h ../include/sha1.h ../include/crypto.h ../include/config.h ../include/getpw.h ../include/login.h ../include/hard.h
+main.o: ../include/sk.h ../include/aux.h ../include/config.h ../include/install.h ../include/sha1.h ../include/login.h ../include/kernel.h ../include/getpw.h ../include/infect.h ../include/skd.h ../include/ident.h
+rc4.o: ../include/rc4.h
+skd.o: ../include/sktypes.h ../include/skd.h ../include/setup.h ../include/skauth.h ../include/sha1.h ../include/config.h ../include/aux.h ../include/sk.h ../include/rc4.h ../include/crypto.h ../include/login.h ../include/hard.h
+parasite.S: ../include/parasite.h
+sha1.S:
+_kernel.S: ../include/syscall.h ../include/sktypes.h ../include/ktypes.h ../include/kdefs.h ../include/sk.h ../include/kernel.h ../include/aux.h ../include/config.h ../include/idt.h ../include/kstr.h ../include/segment.h ../include/setup.h ../include/sha1.h ../include/spinlock.h ../include/dietlibc/include/errno.h ../include/ldt.h ../include/gdt.h
+../include/aux.h: ../include/sktypes.h
+../include/config.h: ../include/sktypes.h
+../include/crypto.h: ../include/rc4.h
+../include/extract.h: ../include/sktypes.h
+../include/gdt.h:
+../include/getpw.h:
+../include/hard.h:
+../include/ident.h:
+../include/idt.h: ../include/sktypes.h
+../include/infect.h: ../include/sktypes.h
+../include/install.h:
+../include/kdefs.h:
+../include/kernel.h: ../include/sk.h ../include/idt.h ../include/segment.h
+../include/kmem.h: ../include/sktypes.h
+../include/kstr.h: ../include/ktypes.h
+../include/ktypes.h: ../include/sktypes.h
+../include/ldt.h:
+../include/lib.h: ../include/sktypes.h
+../include/login.h:
+../include/parasite.h: ../include/sktypes.h
+../include/rc4.h: ../include/sktypes.h
+../include/segment.h: ../include/sktypes.h
+../include/setup.h:
+../include/sha1.h: ../include/sktypes.h
+../include/skauth.h: ../include/sktypes.h
+../include/skd.h:
+../include/sk.h: ../include/sktypes.h ../include/setup.h
+../include/sktypes.h:
+../include/spinlock.h:
+../include/syscall.h:

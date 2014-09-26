@@ -1,0 +1,26 @@
+so, ladies and gantlemans, there we are. result of 2 year development in
+kernel intrusion: suckit2-first release candidate. however, because sk is
+that wanted kind of malware, i'll give only _signed_ copies to trusted
+people - that means, each user will have sk with id in it, and if that
+copy will be leaked, i'll have idea who does. if you're skilled enough
+to crack the binary and remove the id - which is not much that hard,
+then you're probably inteligent enough to do not leak it, even better
+write better binary protection stuff and contact me ;-p
+
+about source codes - those will be given to interested coders, i.e.
+to people who can _prove_ it, not for removing banners and analysis
+of techniques for developing anti-* tools, nor ripping the code to
+be used somewhere else. and keep in the mind: this is alfa version
+which will requiere a lot of testing, *do not get caught with it*,
+use strong passwords and again: do not give it to someone else,
+if your friend really can't live w/o suckit anymore, point him to me.
+why all of that ? cause i think that sk2 is nice piece of software,
+and it's quite complicated - i spent a lotta of hours on it - to be
+simply leaked to public with sources, see:
+
+devastace:~/sk2# cat `find elfuck/ src/ include/ -name "*.[chS]"` | wc
+   9510   27692  193611
+
+deal with it.
+
+-sd, pilsen in czech republic, 2nd january 2003
